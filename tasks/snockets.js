@@ -21,7 +21,7 @@ module.exports = function(grunt) {
   // ==========================================================================
 
   grunt.registerMultiTask('snockets', 'Building js files with snockets.js.', function() {
-    // It doesn't run with empty src and dest parameters.    
+    // It doesn't run with empty src and dest parameters.
     if (typeof this.data.src === 'undefined' ||
         typeof this.data.dest === 'undefined') {
       grunt.log.error('Missing Options: src and dest options necessary');
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     if (fs.existsSync(path.resolve(this.data.src))) {
       try {
-        js = snockets.getConcatenation(this.data.src, {async: false});
+        js = snockets.getConcatenation(this.data.src, {async: false, minify: true});
 
         if (this.data.banner)
           js = this.data.banner + '\n' + js;
