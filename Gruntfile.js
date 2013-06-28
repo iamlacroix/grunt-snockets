@@ -56,6 +56,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['clean', 'snockets', 'nodeunit']);
 
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', 'lint', 'test');
 
 };
