@@ -1,5 +1,5 @@
 var Snockets = require('snockets'),
-	fs = require('fs'),
+  fs = require('fs'),
   path = require('path');
 
 /*
@@ -28,9 +28,11 @@ module.exports = function(grunt) {
       return false;
     }
 
+    var minify = (this.data.minify === false ? false : true);
+
     if (fs.existsSync(path.resolve(this.data.src))) {
       try {
-        js = snockets.getConcatenation(this.data.src, {async: false, minify: true});
+        js = snockets.getConcatenation(this.data.src, {async: false, minify: minify});
 
         if (this.data.banner)
           js = this.data.banner + '\n' + js;
